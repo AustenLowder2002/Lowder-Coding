@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Rental Car Booking</title>
+  <style>
+  h1{
+  color: blue;}
+  
+  label{
+  font-weight: bold;}
+  </style>
+  <script>
+    function calculateCost() {
+	  var carCost = 0;
+      var insuranceCost = 0;
+      var carType = document.getElementById("carType").value;
+      var numberDays = document.getElementById("numberDays").value;
+      var hasInsurance = document.querySelector('input[name="insurance"]:checked').value === "yes";
+      
+      if (carType === "compact") {
+        carCost = 30;
+      } else if (carType === "intermediate") {
+        carCost = 40;
+      } else if (carType === "standard") {
+        carCost = 50;
+      }
+      
+      if (hasInsurance) {
+        insuranceCost = 15;
+      }
+      
+      var totalCost = carCost * numberDays + insuranceCost * numberDays;
+      document.getElementById("totalCost").innerHTML = "Total Cost: $" + totalCost;
+    }
+  </script>
+</head>
+<body>
+  <h1>Rental Car Booking</h1>
+  
+  <label for="carType">Car Type:</label>
+  <select id="carType">
+    <option value="compact">Compact</option>
+    <option value="intermediate">Intermediate</option>
+    <option value="standard">Standard</option>
+  </select><br><br>
+  
+  <label for="numberDays">Number of Days:</label>
+  <input type="number" id="numberDays" min="1" value="1"><br><br>
+  
+  <label>Insurance:</label>
+  <input type="radio" name="insurance" value="yes" checked> Yes
+  <input type="radio" name="insurance" value="no"> No<br><br>
+  
+  <button onclick="calculateCost()">Calculate</button>
+  
+  <div id="totalCost"></div>
+</body>
+</html>

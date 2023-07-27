@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Car Loan Monthly Payment Calculator</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#calculateButton').click(function() {
+        var carPrice = parseFloat($('#carPrice').val());
+        var downPayment = parseFloat($('#downPayment').val());
+        var annualInterestRate = parseFloat($('#annualInterestRate').val());
+        var loanTermYears = parseInt($('#loanTermYears').val());
+        
+        var monthlyPayment = calculateMonthlyPayment(carPrice, downPayment, annualInterestRate, loanTermYears);
+        
+        $('#monthlyPayment').text("Monthly Payment: $" + monthlyPayment.toFixed(2));
+      });
+    });
+    
+    function calculateMonthlyPayment(price, downPayment, interestRate, loanTermYears) {
+      var i = interestRate / 1200;
+      var n = loanTermYears * 12;
+      
+      var loanAmount = price - downPayment;
+      var monthlyPayment = (loanAmount * i * Math.pow((1 + i), n)) / (Math.pow((1 + i), n) - 1);
+      
+      return monthlyPayment;
+    }
+  </script>
+</head>
+<body>
+  <h1>Car Loan Monthly Payment Calculator</h1>
+  
+  <label for="carPrice">Car Price:</label>
+  <input type="number" id="carPrice" step="0.01"><br><br>
+
+  <label for="downPayment">Down Payment:</label>
+  <input type="number" id="downPayment" step="0.01"><br><br>
+  
+  <label for="annualInterestRate">Annual Interest Rate:</label>
+  <input type="number" id="annualInterestRate" step="0.01"><br><br>
+  
+  <label for="loanTermYears">Loan Term (Years):</label>
+  <input type="number" id="loanTermYears" min="1" value = "1"><br><br>
+  
+  <button id="calculateButton">Calculate</button><br><br>
+  
+  <div id="monthlyPayment"></div>
+</body>
+</html>

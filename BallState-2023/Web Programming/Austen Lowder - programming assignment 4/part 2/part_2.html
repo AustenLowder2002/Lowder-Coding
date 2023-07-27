@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Car Loan Monthly Payment Calculator</title>
+</head>
+<body>
+    <h1>Car Loan Monthly Payment Calculator</h1>
+    <form method="post" action="part2.php">
+        <label for="car_price">Car Price:</label>
+        <input type="number" name="car_price" step="0.01" required /><br>
+
+        <label for="down_payment">Down Payment:</label>
+        <input type="number" name="down_payment" step="0.01" required /><br>
+
+        <label for="annual_interest_rate">Annual Percentage Rate (%):</label>
+        <input type="number" name="annual_interest_rate" step="0.01" required /><br>
+
+        <label for="loan_term">Loan Term (Years):</label>
+        <input type="number" name="loan_term" required /><br>
+
+        <input type="submit" name="submit" value="Calculate" />
+    </form>
+</body>
+</html>

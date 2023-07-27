@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Self Image Consulting: Make your misfortunate face look better!</title>
+  <script>
+    function calculateTotalDue() {
+      var servicePrice = 0;
+      var discountRate = 0;
+      
+      var serviceSelect = document.getElementById("serviceSelect");
+      var service = serviceSelect.options[serviceSelect.selectedIndex].value;
+      
+      var discountSelect = document.getElementById("discountSelect");
+      var discount = discountSelect.options[discountSelect.selectedIndex].value;
+      
+      if (service === "makeover") {
+        servicePrice = 125;
+      } else if (service === "hairstyling") {
+        servicePrice = 60;
+      } else if (service === "manicure") {
+        servicePrice = 35;
+      } else if (service === "permanentmakeup") {
+        servicePrice = 200;
+      }
+      
+      if (discount === "10") {
+        discountRate = 0.1;
+      } else if (discount === "20") {
+        discountRate = 0.2;
+      }
+      
+      var totalDue = servicePrice - (servicePrice * discountRate);
+      document.getElementById("totalDue").innerHTML = "Total Due: $" + totalDue;
+    }
+  </script>
+</head>
+<body>
+  <h1>Self Image Consulting Shop: Become more confident!</h1>
+  
+  <label for="discountSelect">Discount:</label>
+  <select id="discountSelect">
+    <option value="none">None</option>
+    <option value="10">10% off</option>
+    <option value="20">20% off</option>
+  </select><br><br>
+  
+  <label for="serviceSelect">Service:</label>
+  <select id="serviceSelect">
+    <option value="makeover">Makeover - $125</option>
+    <option value="hairstyling">Hair Styling - $60</option>
+    <option value="manicure">Manicure - $35</option>
+    <option value="permanentmakeup">Permanent Makeup - $200</option>
+  </select><br><br>
+  
+  <button onclick="calculateTotalDue()">Calculate</button><br><br>
+  
+  <div id="totalDue"></div>
+</body>
+</html>

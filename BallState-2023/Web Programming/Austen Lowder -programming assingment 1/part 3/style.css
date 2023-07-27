@@ -1,0 +1,16 @@
+body {
+  font-family: "Times New Roman", Times, serif;
+  text-align: center;
+}
+
+table,th,td {
+	text-align: center;
+	border: 1px solid black;}
+	
+.winner{
+	font-size: 2em;
+}
+.team{
+	color: blue;
+	font-family: Arial, Helvetica, sans-serif;
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Student Grade Calculator</title>
+</head>
+<body>
+    <h1>Student Grade Calculator</h1>
+    <form action="calculate_grade.php" method="post">
+        <label for="name">Student Name:</label>
+        <input type="text" name="name" required><br>
+
+        <label for="quiz_score">Total Quiz Score:</label>
+        <input type="number" name="quiz_score" required><br>
+
+        <label for="assignment_score">Total Assignment Score:</label>
+        <input type="number" name="assignment_score" required><br>
+
+        <label for="midterm_score">Midterm Exam Score:</label>
+        <input type="number" name="midterm_score" required><br>
+
+        <label for="final_exam_score">Final Exam Score:</label>
+        <input type="number" name="final_exam_score" required><br>
+
+        <input type="submit" value="Calculate Grade">
+    </form>
+</body>
+</html>
